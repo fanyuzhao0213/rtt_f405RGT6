@@ -20,6 +20,9 @@
 #include "oled.h"
 #include "wdt.h"
 #include "timer.h"
+#include "producer.h"
+#include "consumer.h"
+#include "ipc.h"
 
 #ifdef __cplusplus
 extern "C" {

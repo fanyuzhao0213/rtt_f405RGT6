@@ -31,6 +31,10 @@ void MyTestThreadInitThread(void *parameter)
 //    rt_pin_attach_irq(KEY0_PIN_NUM, PIN_IRQ_MODE_FALLING, hdr_callback, "----fyztest");
 //    /* 使能中断 */
 //    rt_pin_irq_enable(KEY0_PIN_NUM, PIN_IRQ_ENABLE);
+	SendEvent(EVENT_FLAG_MyTestThreadInit);
+    WaitForThreadSync();
+	
+	rt_kprintf("The currrent Thread is %s!\n", "MyTestThreadInitThread");
 	rt_pin_mode(LED0_PIN, PIN_MODE_OUTPUT);
 	while(1)
 	{	
@@ -61,7 +65,6 @@ void MyTestThreadInit(rt_uint8_t ThreadPriority, rt_uint32_t ThreadTick)
 		rt_kprintf("thread MyTestThreadInit start success!!\n");
     	rt_thread_startup(tid);
 	}
-
 }
 
 /* 导出到 msh 命令列表中 */

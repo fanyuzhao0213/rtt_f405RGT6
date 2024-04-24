@@ -473,6 +473,10 @@ void MyOledThreadInitThread(void *parameter)
     }else{
 		rt_kprintf("iic oled run successs! find %s device!\n", OLED_I2C_BUS_NAME);
 	}
+	SendEvent(EVENT_FLAG_MyOledThreadInit);
+    WaitForThreadSync();
+	
+	rt_kprintf("The currrent Thread is %s!\n", "MyOledThreadInitThread");
     OLED_Init(oled_i2c_bus);
     OLED_Clear(oled_i2c_bus);
 	while(1)

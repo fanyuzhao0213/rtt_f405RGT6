@@ -412,6 +412,21 @@
               <FileType>1</FileType>
               <FilePath>.\applications\wdt.c</FilePath>
             </File>
+            <File>
+              <FileName>ipc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\ipc.c</FilePath>
+            </File>
+            <File>
+              <FileName>consumer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\consumer.c</FilePath>
+            </File>
+            <File>
+              <FileName>producer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\producer.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
