@@ -56,7 +56,7 @@ int main(void)
     int count = 1;
     /* set LED0 pin mode to output */
 	EepromHwInit();
-	
+	my_wdt_init();
 	/*启动线程列表*/
 	OsThreadInit();
     while (1)

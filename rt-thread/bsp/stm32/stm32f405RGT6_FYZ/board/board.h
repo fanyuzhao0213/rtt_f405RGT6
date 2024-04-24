@@ -18,7 +18,7 @@
 #include "my_pin_drive.h"
 #include "eeprom.h"
 #include "oled.h"
-
+#include "wdt.h"
 
 #ifdef __cplusplus
 extern "C" {

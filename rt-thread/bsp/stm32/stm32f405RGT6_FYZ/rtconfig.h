@@ -81,6 +81,7 @@
 #define RT_USING_SERIAL_V1
 #define RT_SERIAL_USING_DMA
 #define RT_SERIAL_RB_BUFSZ 64
+#define RT_USING_HWTIMER
 #define RT_USING_I2C
 #define RT_USING_I2C_BITOPS
 #define RT_USING_PIN
@@ -258,8 +259,10 @@
 #define UART4_BAUD_RATE 115200
 #define BSP_USING_SPI
 #define BSP_USING_SPI1
+#define BSP_USING_WDT
 #define BSP_USING_I2C
 #define BSP_USING_I2C1
+#define BSP_USING_TIM3
 
 /* Notice: PB6 --> 22; PB7 --> 23 */
 
@@ -271,6 +274,7 @@
 
 #define BSP_I2C2_SCL_PIN 9
 #define BSP_I2C2_SDA_PIN 10
+#define BSP_USING_TIM
 
 /* Board extended module Drivers */
 
