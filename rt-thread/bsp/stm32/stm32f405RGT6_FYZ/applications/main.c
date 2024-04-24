@@ -55,12 +55,16 @@ int main(void)
 {
     int count = 1;
     /* set LED0 pin mode to output */
-	EepromHwInit();
-	my_wdt_init();
+	EepromHwInit();					/*eeprom初始化*/
+	my_wdt_init();					/*看门狗初始化*/
+	my_timer_init(timeout_cb);		/*定时器初始化，参数为中断回调函数*/
+	
+	
 	/*启动线程列表*/
 	OsThreadInit();
     while (1)
     {
+		TimerTaskProcess();			/*定时器相关的任务函数调用*/
 		rt_thread_mdelay(500);
     }
     return RT_EOK;

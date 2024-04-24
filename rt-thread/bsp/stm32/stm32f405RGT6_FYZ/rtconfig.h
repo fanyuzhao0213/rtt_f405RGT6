@@ -262,7 +262,6 @@
 #define BSP_USING_WDT
 #define BSP_USING_I2C
 #define BSP_USING_I2C1
-#define BSP_USING_TIM3
 
 /* Notice: PB6 --> 22; PB7 --> 23 */
 
@@ -275,6 +274,7 @@
 #define BSP_I2C2_SCL_PIN 9
 #define BSP_I2C2_SDA_PIN 10
 #define BSP_USING_TIM
+#define BSP_USING_TIM3
 
 /* Board extended module Drivers */
 

@@ -403,6 +403,11 @@
               <FilePath>.\applications\oled.c</FilePath>
             </File>
             <File>
+              <FileName>timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\timer.c</FilePath>
+            </File>
+            <File>
               <FileName>wdt.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\applications\wdt.c</FilePath>
@@ -858,14 +863,14 @@
           <GroupName>SAL</GroupName>
           <Files>
             <File>
-              <FileName>netdev.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\net\netdev\src\netdev.c</FilePath>
-            </File>
-            <File>
               <FileName>netdev_ipaddr.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\components\net\netdev\src\netdev_ipaddr.c</FilePath>
+            </File>
+            <File>
+              <FileName>netdev.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\net\netdev\src\netdev.c</FilePath>
             </File>
           </Files>
         </Group>

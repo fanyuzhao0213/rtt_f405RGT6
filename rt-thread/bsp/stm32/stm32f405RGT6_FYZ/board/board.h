@@ -19,6 +19,7 @@
 #include "eeprom.h"
 #include "oled.h"
 #include "wdt.h"
+#include "timer.h"
 
 #ifdef __cplusplus
 extern "C" {
