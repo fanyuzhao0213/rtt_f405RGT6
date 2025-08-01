@@ -1,4 +1,6 @@
 #include "timer.h"
+#include "my_key.h"
+
 
 #define HWTIMER_DEV_NAME   "timer3"     /* 定时器名称 */
 
@@ -88,6 +90,7 @@ void TimerTaskProcess(void)
 */
 rt_err_t timeout_cb(rt_device_t dev, rt_size_t size)
 {
+	Key_Tick(); 			// 按键扫描（状态更新）
 	TimerTaskRemarks();
     return 0;
 }

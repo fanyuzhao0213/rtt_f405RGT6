@@ -49,3 +49,4 @@ int my_wdt_init(void)
 
     return ret;
 }
+

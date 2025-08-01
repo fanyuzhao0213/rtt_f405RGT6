@@ -3,3 +3,4 @@
 
 extern int my_wdt_init(void);
 #endif
+

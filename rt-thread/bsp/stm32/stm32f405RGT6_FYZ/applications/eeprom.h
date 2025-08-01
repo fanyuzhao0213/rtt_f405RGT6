@@ -5,6 +5,8 @@
 #include <rtdevice.h>
 #include "rtconfig.h"
 
+extern struct rt_i2c_bus_device *I2C1_BUS;
+
 //由数据手册决定
 #define EEPROM_ADDR         (0x50)
 
@@ -12,3 +14,6 @@
 #define TEST_WRITE_ADDR_LEN		4
 extern rt_uint8_t EepromHwInit(void);
 #endif
+
+
+

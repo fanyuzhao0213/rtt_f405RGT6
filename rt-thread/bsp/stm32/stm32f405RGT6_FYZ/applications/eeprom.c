@@ -2,8 +2,9 @@
 
 
 #define EEPROM_I2C_BUS_NAME "i2c1"
-struct rt_i2c_bus_device *EepromI2CBus;
+struct rt_i2c_bus_device *I2C1_BUS;
 
+void eerprom_test(void);
 /**
  * @name: EepromHwInit
  * @msg:  EEPROM≥ı ºªØ
@@ -17,9 +18,9 @@ struct rt_i2c_bus_device *EepromI2CBus;
  */
 rt_uint8_t EepromHwInit(void)
 {
-    EepromI2CBus = (struct rt_i2c_bus_device *)rt_device_find(EEPROM_I2C_BUS_NAME);
+    I2C1_BUS = (struct rt_i2c_bus_device *)rt_device_find(EEPROM_I2C_BUS_NAME);
 
-    if (RT_NULL == EepromI2CBus)
+    if (RT_NULL == I2C1_BUS)
     {
         rt_kprintf("can't find EEPROM %s device!\n", EEPROM_I2C_BUS_NAME);
         return RT_ERROR;
@@ -64,7 +65,7 @@ rt_err_t ReadEeprom(rt_uint16_t ReadAddr, rt_uint8_t *buf, rt_uint16_t len)
     msgs[1].buf   = buf;
     msgs[1].len   = len;
 
-    if (2 == rt_i2c_transfer(EepromI2CBus, msgs, 2))
+    if (2 == rt_i2c_transfer(I2C1_BUS, msgs, 2))
     {
         return RT_EOK;
     }
@@ -104,7 +105,7 @@ rt_err_t WriteEeprom(rt_uint16_t WriteAddr, rt_uint8_t *data, rt_uint16_t len)
     msgs.buf   = buf;
     msgs.len   = (len + 2);
 
-    if (1 == rt_i2c_transfer(EepromI2CBus, &msgs, 1))
+    if (1 == rt_i2c_transfer(I2C1_BUS, &msgs, 1))
     {
         return RT_EOK;
     }
@@ -140,9 +141,15 @@ void eeprom_read_test(void)
         }
 		if(i != 4)
 		{
-				rt_kprintf("From EEPROM data is %02x,%02x,%02x,%02x\n",testbuff[0],testbuff[1],testbuff[2],testbuff[3]);
+			rt_kprintf("From EEPROM data is %02x,%02x,%02x,%02x\n",testbuff[0],testbuff[1],testbuff[2],testbuff[3]);
 		}
     }
+}
+
+void eerprom_test(void)
+{
+	eeprom_write_test();
+	eeprom_read_test();
 }
 
 MSH_CMD_EXPORT(eeprom_write_test, eeprom write test);

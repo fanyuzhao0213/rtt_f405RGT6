@@ -17,7 +17,7 @@
 #include "drv_gpio.h"
 #include "my_pin_drive.h"
 #include "eeprom.h"
-#include "oled.h"
+#include "my_oled.h"
 #include "wdt.h"
 #include "timer.h"
 #include "producer.h"

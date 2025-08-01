@@ -17,11 +17,17 @@ extern "C" {
 #endif
 #ifndef KEY0_PIN_NUM
 //    #define KEY0_PIN_NUM            55  /* PD8 */
-	#define KEY0_PIN_NUM            GET_PIN(A, 10)  //PA10 key
+	#define KEY0_PIN_NUM            GET_PIN(A, 0)  //PA10 key
 #endif
 #ifndef KEY1_PIN_NUM
-    #define KEY1_PIN_NUM            56  /* PD9 */
+    #define KEY1_PIN_NUM            GET_PIN(B, 0)   /* PD9 */
 #endif
 
 extern void MyTestThreadInit(rt_uint8_t ThreadPriority, rt_uint32_t ThreadTick);
 #endif
+
+
+
+
+
+

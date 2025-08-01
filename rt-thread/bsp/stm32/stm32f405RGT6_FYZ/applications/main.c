@@ -11,6 +11,8 @@
 #include <rtthread.h>
 #include <rtdevice.h>
 #include <board.h>
+#include "my_key.h"
+
 
 #define OS_THREAD_STRUCT OsThreadInitStruct *		/*定义线程结构体重定义*/
 #define OS_THREAD_FUNC_ID_END  0X06					/*最大线程个数，根据实际项目修改*/
@@ -55,7 +57,7 @@ static void OsThreadInit(void)
 
 int main(void)
 {
-    int count = 1;
+
     /* set LED0 pin mode to output */
 	EepromHwInit();					/*eeprom初始化*/
 	my_wdt_init();					/*看门狗初始化*/
@@ -71,7 +73,7 @@ int main(void)
     while (1)
     {
 		TimerTaskProcess();			/*定时器相关的任务函数调用*/
-		rt_thread_mdelay(500);
+		my_key_test_func();
     }
     return RT_EOK;
 }
