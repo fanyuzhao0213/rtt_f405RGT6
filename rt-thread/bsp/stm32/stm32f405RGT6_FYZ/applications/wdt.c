@@ -13,6 +13,7 @@ static void idle_hook(void)
     rt_device_control(wdg_dev, RT_DEVICE_CTRL_WDT_KEEPALIVE, NULL);
 }
 
+
 int my_wdt_init(void)
 {
     rt_err_t ret = RT_EOK;

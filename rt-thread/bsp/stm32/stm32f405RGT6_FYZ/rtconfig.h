@@ -87,6 +87,11 @@
 #define RT_USING_PIN
 #define RT_USING_SPI
 #define RT_USING_WDT
+#define RT_USING_HWCRYPTO
+#define RT_HWCRYPTO_DEFAULT_NAME "hwcryto"
+#define RT_HWCRYPTO_IV_MAX_SIZE 16
+#define RT_HWCRYPTO_KEYBIT_MAX_SIZE 256
+#define RT_HWCRYPTO_USING_RNG
 
 /* Using USB */
 
@@ -265,8 +270,8 @@
 
 /* Notice: PB6 --> 22; PB7 --> 23 */
 
-#define BSP_I2C1_SCL_PIN 22
-#define BSP_I2C1_SDA_PIN 23
+#define BSP_I2C1_SCL_PIN 23
+#define BSP_I2C1_SDA_PIN 22
 #define BSP_USING_I2C2
 
 /* Notice: PA9 --> 62; PA10 --> 63 */
@@ -275,6 +280,7 @@
 #define BSP_I2C2_SDA_PIN 10
 #define BSP_USING_TIM
 #define BSP_USING_TIM3
+#define BSP_USING_RNG
 
 /* Board extended module Drivers */
 

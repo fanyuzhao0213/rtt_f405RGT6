@@ -12,7 +12,7 @@
 #include <rtdevice.h>
 #include <board.h>
 #include "my_key.h"
-
+#include "rsa.h"
 
 #define OS_THREAD_STRUCT OsThreadInitStruct *		/*定义线程结构体重定义*/
 #define OS_THREAD_FUNC_ID_END  0X06					/*最大线程个数，根据实际项目修改*/
@@ -53,23 +53,36 @@ static void OsThreadInit(void)
 		pOsThread++;
 	}
 }
+RNG_HandleTypeDef hrng;
+
+void MX_RNG_Init(void)
+{
+    hrng.Instance = RNG;
+    if (HAL_RNG_Init(&hrng) != HAL_OK)
+    {
+        Error_Handler();
+    }
+}
+
+extern int mbedtls_rsa_test(void);
 
 
 int main(void)
 {
-
     /* set LED0 pin mode to output */
 	EepromHwInit();					/*eeprom初始化*/
-	my_wdt_init();					/*看门狗初始化*/
+//	my_wdt_init();					/*看门狗初始化*/
 	my_timer_init(timeout_cb);		/*定时器初始化，参数为中断回调函数*/
 	rt_semaphore_init(); 			/*生产者消费者线程用到的semphare初始化*/
 	EventCtrlInit();				/*事件集初始化*/
+	MX_RNG_Init();
 	/*启动线程列表*/
 	OsThreadInit();
 	
 	SendEvent(EVENT_FLAG_Main);
     WaitForThreadSync();
 	rt_kprintf("The currrent Thread is %s!\n", "main");
+	
     while (1)
     {
 		TimerTaskProcess();			/*定时器相关的任务函数调用*/

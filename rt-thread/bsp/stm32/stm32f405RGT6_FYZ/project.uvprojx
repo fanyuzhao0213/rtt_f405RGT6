@@ -52,7 +52,7 @@
           <OutputName>rt-thread</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
-          <CreateHexFile>1</CreateHexFile>
+          <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
           <ListingPath>.\build\keil\List\</ListingPath>
@@ -80,7 +80,7 @@
             <nStopB2X>0</nStopB2X>
           </BeforeMake>
           <AfterMake>
-            <RunUserProg1>0</RunUserProg1>
+            <RunUserProg1>1</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
             <UserProg1Name>fromelf --bin !L --output rtthread.bin</UserProg1Name>
             <UserProg2Name></UserProg2Name>
@@ -138,7 +138,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -337,9 +337,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>__STDC_LIMIT_MACROS, USE_HAL_DRIVER, RT_USING_LIBC, __CLK_TCK=RT_TICK_PER_SECOND, __RTTHREAD__, STM32F405xx, RT_USING_ARM_LIBC</Define>
+              <Define>__STDC_LIMIT_MACROS, USE_HAL_DRIVER, RT_USING_LIBC, __CLK_TCK=RT_TICK_PER_SECOND, __RTTHREAD__, STM32F405xx, RT_USING_ARM_LIBC MBEDTLS_CONFIG_FILE=&lt;mbedtls_config_rsa.h&gt;</Define>
               <Undefine></Undefine>
-              <IncludePath>applications;.;..\..\..\components\libc\compilers\common\include;..\..\..\components\libc\compilers\common\extension;..\..\..\components\libc\compilers\common\extension\fcntl\octal;..\..\..\libcpu\arm\common;..\..\..\libcpu\arm\cortex-m4;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\spi;..\..\..\components\drivers\include;..\..\..\components\drivers\include;board;board\CubeMX_Config\Inc;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\libraries\HAL_Drivers\CMSIS\Include;..\..\..\components\finsh;.;..\..\..\include;..\libraries\STM32F4xx_HAL\STM32F4xx_HAL_Driver\Inc;..\libraries\STM32F4xx_HAL\CMSIS\Device\ST\STM32F4xx\Include;..\..\..\components\libc\posix\io\poll;..\..\..\components\libc\posix\io\stdio;..\..\..\components\libc\posix\ipc;..\..\..\components\net\netdev\include;.\applications\OLED</IncludePath>
+              <IncludePath>applications;.;..\..\..\components\libc\compilers\common\include;..\..\..\components\libc\compilers\common\extension;..\..\..\components\libc\compilers\common\extension\fcntl\octal;..\..\..\libcpu\arm\common;..\..\..\libcpu\arm\cortex-m4;..\..\..\components\drivers\hwcrypto;.;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\spi;..\..\..\components\drivers\include;..\..\..\components\drivers\include;board;board\CubeMX_Config\Inc;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\libraries\HAL_Drivers\CMSIS\Include;..\..\..\components\finsh;.;..\..\..\include;..\libraries\STM32F4xx_HAL\STM32F4xx_HAL_Driver\Inc;..\libraries\STM32F4xx_HAL\CMSIS\Device\ST\STM32F4xx\Include;..\..\..\components\libc\posix\io\poll;..\..\..\components\libc\posix\io\stdio;..\..\..\components\libc\posix\ipc;..\..\..\components\net\netdev\include;.\applications\OLED;.\applications\mebdtls\include;.\applications\mebdtls\configs</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -388,11 +388,6 @@
               <FileType>1</FileType>
               <FilePath>applications\main.c</FilePath>
             </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>my_hardware</GroupName>
-          <Files>
             <File>
               <FileName>consumer.c</FileName>
               <FileType>1</FileType>
@@ -409,6 +404,11 @@
               <FilePath>.\applications\ipc.c</FilePath>
             </File>
             <File>
+              <FileName>my_key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\my_key.c</FilePath>
+            </File>
+            <File>
               <FileName>my_oled.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\applications\my_oled.c</FilePath>
@@ -422,6 +422,11 @@
               <FileName>producer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\applications\producer.c</FilePath>
+            </File>
+            <File>
+              <FileName>rsa.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\rsa.c</FilePath>
             </File>
             <File>
               <FileName>timer.c</FileName>
@@ -442,11 +447,6 @@
               <FileName>OLED_Data.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\applications\OLED\OLED_Data.c</FilePath>
-            </File>
-            <File>
-              <FileName>my_key.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\applications\my_key.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -528,6 +528,16 @@
         <Group>
           <GroupName>DeviceDrivers</GroupName>
           <Files>
+            <File>
+              <FileName>hw_rng.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\drivers\hwcrypto\hw_rng.c</FilePath>
+            </File>
+            <File>
+              <FileName>hwcrypto.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\drivers\hwcrypto\hwcrypto.c</FilePath>
+            </File>
             <File>
               <FileName>hwtimer.c</FileName>
               <FileType>1</FileType>
@@ -632,6 +642,11 @@
               <FileName>drv_common.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\libraries\HAL_Drivers\drv_common.c</FilePath>
+            </File>
+            <File>
+              <FileName>drv_crypto.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\HAL_Drivers\drv_crypto.c</FilePath>
             </File>
             <File>
               <FileName>drv_gpio.c</FileName>
@@ -907,6 +922,456 @@
               <FileName>netdev.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\components\net\netdev\src\netdev.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mebdtls</GroupName>
+          <Files>
+            <File>
+              <FileName>aes.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\aes.c</FilePath>
+            </File>
+            <File>
+              <FileName>aesni.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\aesni.c</FilePath>
+            </File>
+            <File>
+              <FileName>arc4.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\arc4.c</FilePath>
+            </File>
+            <File>
+              <FileName>aria.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\aria.c</FilePath>
+            </File>
+            <File>
+              <FileName>asn1parse.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\asn1parse.c</FilePath>
+            </File>
+            <File>
+              <FileName>asn1write.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\asn1write.c</FilePath>
+            </File>
+            <File>
+              <FileName>base64.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\base64.c</FilePath>
+            </File>
+            <File>
+              <FileName>bignum.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\bignum.c</FilePath>
+            </File>
+            <File>
+              <FileName>blowfish.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\blowfish.c</FilePath>
+            </File>
+            <File>
+              <FileName>camellia.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\camellia.c</FilePath>
+            </File>
+            <File>
+              <FileName>ccm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\ccm.c</FilePath>
+            </File>
+            <File>
+              <FileName>certs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\certs.c</FilePath>
+            </File>
+            <File>
+              <FileName>chacha20.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\chacha20.c</FilePath>
+            </File>
+            <File>
+              <FileName>chachapoly.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\chachapoly.c</FilePath>
+            </File>
+            <File>
+              <FileName>cipher.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\cipher.c</FilePath>
+            </File>
+            <File>
+              <FileName>cipher_wrap.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\cipher_wrap.c</FilePath>
+            </File>
+            <File>
+              <FileName>cmac.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\cmac.c</FilePath>
+            </File>
+            <File>
+              <FileName>ctr_drbg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\ctr_drbg.c</FilePath>
+            </File>
+            <File>
+              <FileName>debug.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\debug.c</FilePath>
+            </File>
+            <File>
+              <FileName>des.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\des.c</FilePath>
+            </File>
+            <File>
+              <FileName>dhm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\dhm.c</FilePath>
+            </File>
+            <File>
+              <FileName>ecdh.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\ecdh.c</FilePath>
+            </File>
+            <File>
+              <FileName>ecdsa.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\ecdsa.c</FilePath>
+            </File>
+            <File>
+              <FileName>ecjpake.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\ecjpake.c</FilePath>
+            </File>
+            <File>
+              <FileName>ecp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\ecp.c</FilePath>
+            </File>
+            <File>
+              <FileName>ecp_curves.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\ecp_curves.c</FilePath>
+            </File>
+            <File>
+              <FileName>entropy.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\entropy.c</FilePath>
+            </File>
+            <File>
+              <FileName>entropy_poll.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\entropy_poll.c</FilePath>
+            </File>
+            <File>
+              <FileName>error.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\error.c</FilePath>
+            </File>
+            <File>
+              <FileName>gcm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\gcm.c</FilePath>
+            </File>
+            <File>
+              <FileName>havege.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\havege.c</FilePath>
+            </File>
+            <File>
+              <FileName>hkdf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\hkdf.c</FilePath>
+            </File>
+            <File>
+              <FileName>hmac_drbg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\hmac_drbg.c</FilePath>
+            </File>
+            <File>
+              <FileName>md.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\md.c</FilePath>
+            </File>
+            <File>
+              <FileName>md2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\md2.c</FilePath>
+            </File>
+            <File>
+              <FileName>md4.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\md4.c</FilePath>
+            </File>
+            <File>
+              <FileName>md5.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\md5.c</FilePath>
+            </File>
+            <File>
+              <FileName>memory_buffer_alloc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\memory_buffer_alloc.c</FilePath>
+            </File>
+            <File>
+              <FileName>net_sockets.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\net_sockets.c</FilePath>
+            </File>
+            <File>
+              <FileName>nist_kw.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\nist_kw.c</FilePath>
+            </File>
+            <File>
+              <FileName>oid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\oid.c</FilePath>
+            </File>
+            <File>
+              <FileName>padlock.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\padlock.c</FilePath>
+            </File>
+            <File>
+              <FileName>pem.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\pem.c</FilePath>
+            </File>
+            <File>
+              <FileName>pk.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\pk.c</FilePath>
+            </File>
+            <File>
+              <FileName>pk_wrap.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\pk_wrap.c</FilePath>
+            </File>
+            <File>
+              <FileName>pkcs5.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\pkcs5.c</FilePath>
+            </File>
+            <File>
+              <FileName>pkcs11.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\pkcs11.c</FilePath>
+            </File>
+            <File>
+              <FileName>pkcs12.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\pkcs12.c</FilePath>
+            </File>
+            <File>
+              <FileName>pkparse.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\pkparse.c</FilePath>
+            </File>
+            <File>
+              <FileName>pkwrite.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\pkwrite.c</FilePath>
+            </File>
+            <File>
+              <FileName>platform.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\platform.c</FilePath>
+            </File>
+            <File>
+              <FileName>platform_util.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\platform_util.c</FilePath>
+            </File>
+            <File>
+              <FileName>poly1305.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\poly1305.c</FilePath>
+            </File>
+            <File>
+              <FileName>psa_crypto.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\psa_crypto.c</FilePath>
+            </File>
+            <File>
+              <FileName>psa_crypto_se.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\psa_crypto_se.c</FilePath>
+            </File>
+            <File>
+              <FileName>psa_crypto_slot_management.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\psa_crypto_slot_management.c</FilePath>
+            </File>
+            <File>
+              <FileName>psa_crypto_storage.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\psa_crypto_storage.c</FilePath>
+            </File>
+            <File>
+              <FileName>psa_its_file.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\psa_its_file.c</FilePath>
+            </File>
+            <File>
+              <FileName>ripemd160.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\ripemd160.c</FilePath>
+            </File>
+            <File>
+              <FileName>rsa.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\rsa.c</FilePath>
+            </File>
+            <File>
+              <FileName>rsa_internal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\rsa_internal.c</FilePath>
+            </File>
+            <File>
+              <FileName>sha1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\sha1.c</FilePath>
+            </File>
+            <File>
+              <FileName>sha256.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\sha256.c</FilePath>
+            </File>
+            <File>
+              <FileName>sha512.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\sha512.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssl_cache.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\ssl_cache.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssl_ciphersuites.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\ssl_ciphersuites.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssl_cli.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\ssl_cli.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssl_cookie.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\ssl_cookie.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssl_msg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\ssl_msg.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssl_srv.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\ssl_srv.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssl_ticket.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\ssl_ticket.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssl_tls.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\ssl_tls.c</FilePath>
+            </File>
+            <File>
+              <FileName>threading.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\threading.c</FilePath>
+            </File>
+            <File>
+              <FileName>timing.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\timing.c</FilePath>
+            </File>
+            <File>
+              <FileName>version.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\version.c</FilePath>
+            </File>
+            <File>
+              <FileName>version_features.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\version_features.c</FilePath>
+            </File>
+            <File>
+              <FileName>x509.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\x509.c</FilePath>
+            </File>
+            <File>
+              <FileName>x509_create.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\x509_create.c</FilePath>
+            </File>
+            <File>
+              <FileName>x509_crl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\x509_crl.c</FilePath>
+            </File>
+            <File>
+              <FileName>x509_crt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\x509_crt.c</FilePath>
+            </File>
+            <File>
+              <FileName>x509_csr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\x509_csr.c</FilePath>
+            </File>
+            <File>
+              <FileName>x509write_crt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\x509write_crt.c</FilePath>
+            </File>
+            <File>
+              <FileName>x509write_csr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\x509write_csr.c</FilePath>
+            </File>
+            <File>
+              <FileName>xtea.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\library\xtea.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mebdtls/config</GroupName>
+          <Files>
+            <File>
+              <FileName>mbedtls_config_rsa.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\applications\mebdtls\configs\mbedtls_config_rsa.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mebdtsl/test</GroupName>
+          <Files>
+            <File>
+              <FileName>mbedtls_rsa_test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\mbedtls_rsa_test.c</FilePath>
+            </File>
+            <File>
+              <FileName>entropy_hardware_alt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\mebdtls\port\entropy_hardware_alt.c</FilePath>
             </File>
           </Files>
         </Group>

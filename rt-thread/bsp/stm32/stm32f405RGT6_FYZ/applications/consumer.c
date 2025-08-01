@@ -4,7 +4,7 @@
 /*消费者thread*/
 
 
-static rt_uint32_t MyConsumerThreadInit_stack = 1024;
+static rt_uint32_t MyConsumerThreadInit_stack = 4096 * 10;
 
 void MyConsumerThreadInitThread(void *parameter)
 {
@@ -20,7 +20,7 @@ void MyConsumerThreadInitThread(void *parameter)
 		/*临界区进行上锁操作*/
 		rt_sem_take(&sem_lock,RT_WAITING_FOREVER);
 		sum += array[get % MAXSEM];
-		rt_kprintf("the consumer get number: %d\n", array[get % MAXSEM]);
+//		rt_kprintf("the consumer get number: %d\n", array[get % MAXSEM]);
 		get++;
 		rt_sem_release(&sem_lock);
 		
@@ -33,8 +33,9 @@ void MyConsumerThreadInitThread(void *parameter)
 		rt_thread_delay(50);	
 	}
 	
-	rt_kprintf("the consumer sum is: %d\n", sum);
-    rt_kprintf("the consumer exit!\n");
+		mbedtls_rsa_test();
+//	rt_kprintf("the consumer sum is: %d\n", sum);
+//    rt_kprintf("the consumer exit!\n");
 }
 
 void MyConsumerThreadInit(rt_uint8_t ThreadPriority, rt_uint32_t ThreadTick)

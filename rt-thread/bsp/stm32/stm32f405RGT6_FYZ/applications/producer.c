@@ -21,7 +21,7 @@ void MyProducerThreadInitThread(void *parameter)
 		/*修改ARRAY内容，上锁*/
 		rt_sem_take(&sem_lock,RT_WAITING_FOREVER);
 		array[set % MAXSEM] = cnt + 1;
-        rt_kprintf("the producer set a number: %d\n", array[set % MAXSEM]);
+//        rt_kprintf("the producer set a number: %d\n", array[set % MAXSEM]);
         set++;
         rt_sem_release(&sem_lock);
 
@@ -32,7 +32,7 @@ void MyProducerThreadInitThread(void *parameter)
         /* 暂停一段时间 */
         rt_thread_mdelay(20);
 	}
-	rt_kprintf("the producer exit!\n");
+//	rt_kprintf("the producer exit!\n");
 }
 
 void MyProducerThreadInit(rt_uint8_t ThreadPriority, rt_uint32_t ThreadTick)
