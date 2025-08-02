@@ -28,6 +28,29 @@
 #define MBEDTLS_OID_C
 #define MBEDTLS_RSA_C
 #define MBEDTLS_PKCS1_V21
+#define MBEDTLS_PKCS1_V15
+#define MBEDTLS_SHA1_C
+
+
+#define MBEDTLS_PEM_WRITE_C     // 生成 PEM 格式输出
+#define MBEDTLS_BASE64_C        // PEM 格式依赖的 base64 编码模块
+#define MBEDTLS_PK_WRITE_C      // 支持公钥/私钥写出接口
+#define MBEDTLS_ASN1_WRITE_C    // 写 ASN.1 结构
+#define MBEDTLS_PK_C
+
+
+//写pem证书
+#define MBEDTLS_PK_WRITE_C
+#define MBEDTLS_PEM_WRITE_C
+#define MBEDTLS_ASN1_WRITE_C
+
+//读pem证书
+#define MBEDTLS_PEM_PARSE_C
+#define MBEDTLS_PK_PARSE_C
+#define MBEDTLS_ASN1_PARSE_C
+#define MBEDTLS_BASE64_C
+#define MBEDTLS_FS_IO
+
 
 #include "mbedtls/check_config.h"
 

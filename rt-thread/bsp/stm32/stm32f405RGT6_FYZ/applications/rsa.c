@@ -214,7 +214,7 @@ static void rsa_demo_entry(void *parameter)
     rt_free(encoded);
     rt_free(decoded);
 
-    rt_kprintf("[RSA] RSA example run finish£¡\n");
+    rt_kprintf("[RSA] RSA example run finish!\n");
 }
 
 /**
